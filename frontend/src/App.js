@@ -5,6 +5,11 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Login from './components/Login';
 import Dashboard from './components/Dashboard';
+import Accounts from './components/Accounts';
+import Questions from './components/Questions';
+import POC from './components/POC';
+import Admin from './components/Admin';
+
 import { ThemeProvider, createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`

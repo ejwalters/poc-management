@@ -38,7 +38,7 @@ const NavBarItem = styled.div`
     border-radius: 10px;
     margin: 5px;
     padding: 10px 20px;
-    margin-bottom: 81px; // Consistent spacing between items
+    margin-bottom: 50px; // Consistent spacing between items
     cursor: pointer;
 `;
 
@@ -52,6 +52,11 @@ const StyledLogoutIcon = styled(LogoutIcon)`
     color: #FF3B6A; // Ensuring high specificity
   }
 `;
+
+const StyledMenuIcon = styled(MenuIcon)`
+    color: white !important;  // Only use !important as a last resort
+`;
+
 
 
 const NavBar = () => {
@@ -73,7 +78,7 @@ const NavBar = () => {
     return (
         <NavBarDrawer variant="permanent">
             <MenuButton>
-                <MenuIcon />
+                <StyledMenuIcon />
             </MenuButton>
             <Divider />
             <NavBarList>
