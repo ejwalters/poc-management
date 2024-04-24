@@ -5,16 +5,32 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Login from './components/Login';
 import Dashboard from './components/Dashboard';
+import { ThemeProvider, createGlobalStyle } from 'styled-components';
+
+const GlobalStyle = createGlobalStyle`
+  body {
+    color: ${props => props.theme.primaryColor};
+    background-color: 'white'';
+  }
+`;
+
+const theme = {
+  primaryColor: '#3A374E',
+  secondaryColor: '#AF64FA'
+};
 
 function App() {
   return (
-    <Router>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Dashboard />} exact />
-        <Route path="/login" element={<Login />} />
-      </Routes>
-    </Router>
+    <ThemeProvider theme={theme}>
+      <GlobalStyle />
+      <Router>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Dashboard />} />
+          <Route path="/login" element={<Login />} />
+        </Routes>
+      </Router>
+    </ThemeProvider>
   );
 }
 
