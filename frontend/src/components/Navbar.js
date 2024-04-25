@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import { NavLink } from 'react-router-dom';
 import { Drawer, List, ListItemText, Divider, IconButton } from '@mui/material';
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
@@ -29,52 +30,31 @@ const NavBarList = styled(List)({
     width: '100%',
 });
 
-const NavBarItem = styled.div`
+const StyledNavLink = styled(NavLink)`
     display: flex;
     align-items: center;
-    list-style-type: none;
-    color: ${({ isSelected, theme }) => isSelected ? 'white' : 'inherit'};
-    background-color: ${({ isSelected, theme }) => isSelected ? theme.secondaryColor : 'transparent'};
+    color: inherit;
+    text-decoration: none;
     border-radius: 10px;
     margin: 5px;
     padding: 10px 20px;
-    margin-bottom: 50px; // Consistent spacing between items
-    cursor: pointer;
+    margin-bottom: 50px;
+
+    &.active {
+        background-color: ${({ theme }) => theme.secondaryColor};
+        color: white;
+    }
 `;
 
 const NavBarIcon = styled.div`
-    color: 'inherit';
     margin-right: 20px; // Space between icon and text
-`;
-
-const StyledLogoutIcon = styled(LogoutIcon)`
-  && {
-    color: #FF3B6A; // Ensuring high specificity
-  }
 `;
 
 const StyledMenuIcon = styled(MenuIcon)`
     color: white !important;  // Only use !important as a last resort
 `;
 
-
-
 const NavBar = () => {
-    const [selectedItem, setSelectedItem] = useState('');
-
-    const navItems = [
-        { name: 'Dashboard', icon: <DashboardIcon /> },
-        { name: 'POCs', icon: <DashboardIcon /> }, // Replace with the correct icon
-        { name: 'Accounts', icon: <AccountBoxIcon /> },
-        { name: 'Questions', icon: <QuestionAnswerIcon /> },
-        { name: 'Admin', icon: <AdminPanelSettingsIcon /> },
-        { name: 'Logout', icon: <StyledLogoutIcon />, specialColor: '#FF3B6A' }
-    ];
-
-    const handleItemClick = (name) => {
-        setSelectedItem(name);
-    };
-
     return (
         <NavBarDrawer variant="permanent">
             <MenuButton>
@@ -82,19 +62,12 @@ const NavBar = () => {
             </MenuButton>
             <Divider />
             <NavBarList>
-                {navItems.map(item => (
-                    <NavBarItem
-                        key={item.name}
-                        isSelected={selectedItem === item.name}
-                        onClick={() => handleItemClick(item.name)}
-                        style={{ color: item.specialColor }}
-                    >
-                        <NavBarIcon style={{ color: selectedItem === item.name && item.specialColor ? item.specialColor : '#FFF' }}>
-                            {item.icon}
-                        </NavBarIcon>
-                        <ListItemText primary={item.name} />
-                    </NavBarItem>
-                ))}
+                <StyledNavLink to="/" exact><DashboardIcon /> Dashboard</StyledNavLink>
+                <StyledNavLink to="/pocs"><DashboardIcon /> POCs</StyledNavLink> {/* Ensure correct icon */}
+                <StyledNavLink to="/accounts"><AccountBoxIcon /> Accounts</StyledNavLink>
+                <StyledNavLink to="/questions"><QuestionAnswerIcon /> Questions</StyledNavLink>
+                <StyledNavLink to="/admin"><AdminPanelSettingsIcon /> Admin</StyledNavLink>
+                <StyledNavLink to="/logout"><LogoutIcon style={{ color: '#FF3B6A' }} /> Logout</StyledNavLink>
             </NavBarList>
         </NavBarDrawer>
     );

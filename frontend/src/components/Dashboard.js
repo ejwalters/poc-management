@@ -1,6 +1,8 @@
 // frontend/src/components/Dashboard.js
 
 import React from 'react';
+import styled from 'styled-components';
+
 
 const Dashboard = () => {
     return (
@@ -10,5 +12,6 @@ const Dashboard = () => {
         </div>
     );
 }
+
 
 export default Dashboard;
