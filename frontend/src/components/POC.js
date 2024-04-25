@@ -1,4 +1,4 @@
-// frontend/src/components/Dashboard.js
+// frontend/src/components/POC.js
 
 import React from 'react';
 import styled from 'styled-components';

@@ -62,15 +62,34 @@ const NavBar = () => {
             </MenuButton>
             <Divider />
             <NavBarList>
-                <StyledNavLink to="/" exact><DashboardIcon /> Dashboard</StyledNavLink>
-                <StyledNavLink to="/pocs"><DashboardIcon /> POCs</StyledNavLink> {/* Ensure correct icon */}
-                <StyledNavLink to="/accounts"><AccountBoxIcon /> Accounts</StyledNavLink>
-                <StyledNavLink to="/questions"><QuestionAnswerIcon /> Questions</StyledNavLink>
-                <StyledNavLink to="/admin"><AdminPanelSettingsIcon /> Admin</StyledNavLink>
-                <StyledNavLink to="/logout"><LogoutIcon style={{ color: '#FF3B6A' }} /> Logout</StyledNavLink>
+                <StyledNavLink to="/">
+                    <NavBarIcon><DashboardIcon /></NavBarIcon>
+                    Dashboard
+                </StyledNavLink>
+                <StyledNavLink to="/pocs">
+                    <NavBarIcon><DashboardIcon /></NavBarIcon>
+                    POCs
+                </StyledNavLink>
+                <StyledNavLink to="/accounts">
+                    <NavBarIcon><AccountBoxIcon /></NavBarIcon>
+                    Accounts
+                </StyledNavLink>
+                <StyledNavLink to="/questions">
+                    <NavBarIcon><QuestionAnswerIcon /></NavBarIcon>
+                    Questions
+                </StyledNavLink>
+                <StyledNavLink to="/admin">
+                    <NavBarIcon><AdminPanelSettingsIcon /></NavBarIcon>
+                    Admin
+                </StyledNavLink>
+                <StyledNavLink to="/logout">
+                    <NavBarIcon style={{ color: '#FF3B6A' }}><LogoutIcon /></NavBarIcon>
+                    Logout
+                </StyledNavLink>
             </NavBarList>
         </NavBarDrawer>
     );
 };
+
 
 export default NavBar;
