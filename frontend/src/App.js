@@ -51,7 +51,6 @@ function App() {
             <Route path="/accounts" element={<Accounts />} />
             <Route path="/questions" element={<Questions />} />
             <Route path="/admin" element={<Admin />} />
-
             <Route path="/login" element={<Login />} />
           </Routes>
         </MainContent>
