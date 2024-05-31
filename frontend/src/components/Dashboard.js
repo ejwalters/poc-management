@@ -2,14 +2,17 @@
 
 import React from 'react';
 import styled from 'styled-components';
-import Card from "@material-ui/core/Card";
-import CardHeader from "@material-ui/core/CardHeader";
-import CardContent from "@material-ui/core/CardContent";
-import Table from "@material-ui/core/Table";
+import Card from "@mui/material/Card";
+import CardHeader from "@mui/material/CardHeader";
+import CardContent from "@mui/material/CardContent";
+import Table from "@mui/material/Table";
 import avatarPlaceholder from '../images/eric.jpg'; // Replace with the path to your placeholder
 import SearchIcon from '@mui/icons-material/Search';
-import InputAdornment from "@material-ui/core/InputAdornment";
-import TextField from "@material-ui/core/TextField";
+import InputAdornment from "@mui/material/InputAdornment";
+import TextField from "@mui/material/TextField";
+import QuestionMarkIcon from '@mui/icons-material/QuestionMark';
+import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
+import FormatListBulletedIcon from '@mui/icons-material/FormatListBulleted';
 
 
 const CardTitleWhite = styled.h4`
@@ -25,7 +28,7 @@ const CardTitleWhite = styled.h4`
 const StyledCard = styled(Card)`
     flex: 1;
     margin: 1em;
-    margin-top: 100px;
+    margin-top: 25px;
     box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.2);
     height: 200px;
 `;
@@ -34,6 +37,10 @@ const LargeCard = styled(Card)`
     margin: 1em;
     box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.2);
     height: 350px;
+
+    > h1 {
+        margin: .5em;
+    }
 `;
 
 const SearchCard = styled(Card)`
@@ -49,18 +56,21 @@ const SearchCard = styled(Card)`
 const StyledCard1 = styled(StyledCard)`
     && {
         background-color: #ffcccc; // Adjust this value to your liking
+        position: relative;
     }
 `;
 
 const StyledCard2 = styled(StyledCard)`
     && {
         background-color: #ccffcc; // Adjust this value to your liking
+        position: relative;
     }
 `;
 
 const StyledCard3 = styled(StyledCard)`
     && {
         background-color: #ccccff; // Adjust this value to your liking
+        position: relative;
     }
 `;
 
@@ -96,6 +106,42 @@ const Avatar = styled.img`
     margin-right: 30px; // Adds some space between the image and the search input
 `;
 
+const ViewDiv = styled.div`
+    width: 100%;
+    height: 30px;
+    background-color: rgba(255, 255, 255, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 0;
+`;
+
+const StyledSquare = styled.div`
+    width: 50px;
+    height: 50px;
+    border-radius: 10px; // Adjust this value to your liking
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px; // Adjust this value to your liking
+`;
+
+const StyledSquare1 = styled(StyledSquare)`
+    background-color: #cc9999; // Adjust this value to your liking
+`;
+
+const StyledSquare2 = styled(StyledSquare)`
+    background-color: #99cc99; // Adjust this value to your liking
+`;
+
+const StyledSquare3 = styled(StyledSquare)`
+    background-color: #9999cc; // Adjust this value to your liking
+`;
+
 const Dashboard = () => {
     return (
         <div>
@@ -104,21 +150,34 @@ const Dashboard = () => {
                 <Avatar src={avatarPlaceholder} alt="Avatar" />
             </SearchCard>
             <LargeCard>
+                <h1>Your Business</h1>
                 <CardContainer>
                     <StyledCard1>
+                    <StyledSquare1>
+                    <FormatListBulletedIcon style={{ color: '#ffffff' }} />
+                    </StyledSquare1>
                         <CardContent>
                             {/* Summary content goes here */}
                         </CardContent>
+                        <ViewDiv>View</ViewDiv>
                     </StyledCard1>
                     <StyledCard2>
+                    <StyledSquare2>
+                        <AttachMoneyIcon style={{ color: '#ffffff' }}/>
+                    </StyledSquare2>
                         <CardContent>
                             {/* Summary content goes here */}
                         </CardContent>
+                        <ViewDiv>View</ViewDiv>
                     </StyledCard2>
                     <StyledCard3>
+                    <StyledSquare3>
+                        <QuestionMarkIcon style={{ color: '#ffffff' }}/>
+                    </StyledSquare3>
                         <CardContent>
                             {/* Summary content goes here */}
                         </CardContent>
+                        <ViewDiv>View</ViewDiv>
                     </StyledCard3>
                 </CardContainer>
             </LargeCard>
