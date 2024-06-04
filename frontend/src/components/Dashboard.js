@@ -31,6 +31,7 @@ const StyledCard = styled(Card)`
     margin-top: 25px;
     box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.2);
     height: 200px;
+    cursor: pointer;
 `;
 
 const LargeCard = styled(Card)`
@@ -112,6 +113,7 @@ const ViewDiv = styled.div`
     background-color: rgba(255, 255, 255, 0.5);
     display: flex;
     justify-content: center;
+    font-weight: bold;
     align-items: center;
     position: absolute;
     bottom: 0;
@@ -142,6 +144,23 @@ const StyledSquare3 = styled(StyledSquare)`
     background-color: #9999cc; // Adjust this value to your liking
 `;
 
+const NumberText = styled.p`
+    position: absolute;
+    top: 10px; // Adjust this value to your liking
+    left: 100px; // Adjust this value to your liking
+    font-size: 30px; // Medium font
+    font-weight: bold;
+    margin: 0;
+`;
+
+const SmallText = styled.p`
+    position: absolute;
+    top: 50px; // Adjust this value to your liking
+    left: 100px; // Adjust this value to your liking
+    font-size: 14px; // Small font
+    margin: 0;
+`;
+
 const Dashboard = () => {
     return (
         <div>
@@ -154,8 +173,10 @@ const Dashboard = () => {
                 <CardContainer>
                     <StyledCard1>
                     <StyledSquare1>
-                    <FormatListBulletedIcon style={{ color: '#ffffff' }} />
+                        <FormatListBulletedIcon style={{ color: '#ffffff', fontSize: 35 }} />
                     </StyledSquare1>
+                        <NumberText>2</NumberText>
+                        <SmallText>Open POCs</SmallText> 
                         <CardContent>
                             {/* Summary content goes here */}
                         </CardContent>
@@ -163,8 +184,10 @@ const Dashboard = () => {
                     </StyledCard1>
                     <StyledCard2>
                     <StyledSquare2>
-                        <AttachMoneyIcon style={{ color: '#ffffff' }}/>
+                        <AttachMoneyIcon style={{ color: '#ffffff', fontSize: 35 }} />
                     </StyledSquare2>
+                        <NumberText>5</NumberText>
+                        <SmallText>Action Items</SmallText> 
                         <CardContent>
                             {/* Summary content goes here */}
                         </CardContent>
@@ -172,8 +195,10 @@ const Dashboard = () => {
                     </StyledCard2>
                     <StyledCard3>
                     <StyledSquare3>
-                        <QuestionMarkIcon style={{ color: '#ffffff' }}/>
+                        <QuestionMarkIcon style={{ color: '#ffffff', fontSize: 35 }} />
                     </StyledSquare3>
+                        <NumberText>10</NumberText>
+                        <SmallText>Open Questions</SmallText> 
                         <CardContent>
                             {/* Summary content goes here */}
                         </CardContent>
